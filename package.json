@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo Hola",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "prepare": "husky"
   },
   "author": "bookflix-devf",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2"
+    "@commitlint/config-conventional": "^19.2.2",
+    "nodemon": "^3.1.4"
   }
 }
