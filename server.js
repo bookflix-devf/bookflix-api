@@ -9,3 +9,5 @@ server.on('listening', () => {
 
 //TODO change port to env variable
 server.listen(8000);
+
+console.log('test');
