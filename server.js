@@ -7,4 +7,5 @@ server.on('listening', () => {
   console.info(`Server running http://localhost:8000`);
 });
 
+//TODO change port to env variable
 server.listen(8000);
