@@ -3,9 +3,16 @@
   "version": "0.0.1",
   "description": "Bookflix API",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo Hola",
+    "prepare": "husky"
   },
   "author": "bookflix-devf",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.4"
+  }
 }
