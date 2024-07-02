@@ -1,1 +1,1 @@
-echo CommitLint
+echo CommitLint $1
