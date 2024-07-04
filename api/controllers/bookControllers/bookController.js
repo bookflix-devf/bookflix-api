@@ -6,7 +6,7 @@ const bookService = new Service(Book);
 
 const createBook = async (req, res) => {
   try {
-    const author = await Author.findById(req.body.authorId);
+    const author = await Author.findById(req.body.author);
     if (!author) {
       return res.status(404).json({
         msg: 'Author not found',
@@ -25,9 +25,15 @@ const createBook = async (req, res) => {
   }
 };
 
-//TODO getAllBooksfiltered
+const searchBooks = async (req, res) => {
+  const { offset = 0, limit = 10 } = req.query;
 
-//TODO getBookInfoById
+  const books = await Book.find().skip(offset).limit(limit);
+
+  return res.json({
+    books,
+  });
+};
 
 const getBookInfoById = async (req, res) => {
   const { bookId } = req.params;
@@ -54,4 +60,4 @@ const getBookInfoById = async (req, res) => {
   }
 };
 
-export { createBook, getBookInfoById };
+export { createBook, getBookInfoById, searchBooks };

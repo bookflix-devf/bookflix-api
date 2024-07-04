@@ -42,7 +42,6 @@ const register = async (req, res) => {
   }
 };
 
-//TODO login controller
 const login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({
