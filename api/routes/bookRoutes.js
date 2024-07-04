@@ -4,13 +4,17 @@ import {
   getBookInfoById,
   searchBooks,
 } from '../controllers/bookControllers/bookController.js';
+import { authUser } from '../middlewares/authValidator.js';
+import commentRouter from './commentRoutes.js';
 
 const bookRouter = Router();
 
 //TODO only author
-bookRouter.post('/', createBook);
-
-bookRouter.get('/:bookId', getBookInfoById);
+bookRouter.post('/', authUser(['author']), createBook);
 bookRouter.get('/', searchBooks);
+bookRouter.get('/:bookId', getBookInfoById);
+
+//TODO
+bookRouter.use('/:bookId/comments', commentRouter);
 
 export default bookRouter;
