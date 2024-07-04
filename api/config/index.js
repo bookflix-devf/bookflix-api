@@ -5,4 +5,8 @@ const database = {
   name: process.env.DB_NAME,
 };
 
-export { database };
+const token = {
+  secret: process.env.TOKEN_SECRET,
+};
+
+export { database, token };
