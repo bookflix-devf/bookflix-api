@@ -1,6 +1,7 @@
 import express from 'express';
 import bookRouter from './routes/bookRoutes.js';
 import authRouter from './routes/authRoutes.js';
+import communityRouter from './routes/communityRoutes.js';
 
 const api = express();
 
@@ -14,6 +15,7 @@ api.get('/test', (req, res) => {
 
 api.use('/books', bookRouter);
 api.use('/auth', authRouter);
+api.use('/authors', communityRouter)
 
 api.use((err, req, res, _next) => {
   console.error(err);
