@@ -4,6 +4,6 @@ import { getCommunityByAuthorId } from '../controllers/communityControllers/comm
 const communityRouter = Router();
 
 
-communityRouter.get('/community/:authorId', getCommunityByAuthorId);
+communityRouter.get('/:authorId/community', getCommunityByAuthorId);
 
 export default communityRouter;
