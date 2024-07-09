@@ -9,8 +9,8 @@ import Service from '../../services/Service.js'
 const communityService = new Service(Community)
 
 const updateCommunity = async (req, res) =>{
-    if (!req.params.movieId.match(/^[0-9a-fA-F]{24}$/)) {
-        return res.status(400).json({ msg: 'invalid housing ID' })
+    if (!req.params.communityId.match(/^[0-9a-fA-F]{24}$/)) {
+        return res.status(400).json({ msg: 'invalid community ID' })
       }
     
     try {

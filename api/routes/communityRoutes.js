@@ -6,8 +6,11 @@ import { authUser } from '../middlewares/authValidator.js'
 import validateBody from '../middlewares/validateBody.js'
 import updateCommunitySchema from '../validators/updateCommunitySchema.js';
 
-const communityRouter = Router()
+const communityRouter = Router({
+    mergeParams: true,
+    strict: true,
+})
 
-communityRouter.patch('/:communityId', authUser(['author', 'reader']), validateBody(updateCommunitySchema), updateCommunity)
+communityRouter.patch('/:communityId', authUser(['author']), validateBody(updateCommunitySchema), updateCommunity)
 
 export default communityRouter

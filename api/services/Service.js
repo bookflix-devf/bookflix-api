@@ -10,7 +10,7 @@ export default class Service {
     return this.model.findById(id);
   }
   updateById(id, data) {
-    return this.model.findByIdAndUpdate(id, data);
+    return this.model.findByIdAndUpdate(id, data, { new: true });
   }
   create(data) {
     return this.model.create(data);
