@@ -1,7 +1,7 @@
 //TODO craeteCommunity
 //TODO updateCommunity
 //TODO deleteCommunity
-//TODO getCommunityByID
+
 
 
 import Community from '../../models/community/Community.js';
