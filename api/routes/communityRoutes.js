@@ -1,12 +1,9 @@
 import { Router } from 'express';
-//import { getCommunityByAuthorId } from '../controllers/communityControllers/communityController.js';
-import authorRouter from './authorRoutes.js';
+import { getCommunityByAuthorId } from '../controllers/communityControllers/communityController.js';
 
 const communityRouter = Router();
 
 
-authorRouter.use('/:authorId/community', authorRouter);
-
-
+communityRouter.get('/', getCommunityByAuthorId);
 
 export default communityRouter;

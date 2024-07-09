@@ -1,8 +1,13 @@
 import { Router } from 'express';
-import communityRouter from './communityRoutes';
+import communityRouter from './communityRoutes.js';
+
+import { getAllAuthors, getAuthorById } from '../controllers/authorControllers/authorController.js';
 
 const authorRouter = Router();
 
-authorRouter.get('/:authorId/community', communityRouter);
+authorRouter.get('/', getAllAuthors);
+authorRouter.get('/:authorId', getAuthorById);
 
-export default authorRouter
+authorRouter.use('/:authorId/community', communityRouter);
+
+export default authorRouter;
