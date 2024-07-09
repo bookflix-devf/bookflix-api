@@ -9,7 +9,6 @@ import commentRouter from './commentRoutes.js';
 
 const bookRouter = Router();
 
-//TODO only author
 bookRouter.post('/', authUser(['author']), createBook);
 bookRouter.get('/', searchBooks);
 bookRouter.get('/:bookId', getBookInfoById);
