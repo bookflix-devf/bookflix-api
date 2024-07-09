@@ -16,9 +16,8 @@ import User from '../models/books/User.js';
 import jwt from 'jwt-simple';
 import { token as tokenConfig } from '../config/index.js';
 
-//TODO: validar body
 const register = async (req, res) => {
-  //TODO: validar que no haya un usuario con ese email
+  //TODO: validar que no haya un usuario con ese email Isaías
   const { role } = req.body;
   let newUser = null;
   const { user } = req.body;

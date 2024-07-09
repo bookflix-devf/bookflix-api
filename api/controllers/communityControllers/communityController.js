@@ -1,4 +1,4 @@
-//TODO craeteCommunity
-//TODO updateCommunity
-//TODO deleteCommunity
-//TODO getCommunityByID
+//TODO craeteCommunity Alan
+//TODO updateCommunity Angel
+//TODO deleteCommunity  Erik
+//TODO getCommunityByID Jesus
