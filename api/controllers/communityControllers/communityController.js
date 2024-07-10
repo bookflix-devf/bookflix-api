@@ -5,6 +5,7 @@
 
 import Community from '../../models/community/Community.js'
 import Service from '../../services/Service.js'
+import Author from '../../models/books/Author.js'
 
 const communityService = new Service(Community)
 
@@ -12,9 +13,12 @@ const updateCommunity = async (req, res) =>{
     if (!req.params.communityId.match(/^[0-9a-fA-F]{24}$/)) {
         return res.status(400).json({ msg: 'invalid community ID' })
       }
+
+      const {authorId, communityId} = req.params
+      const author = await Author.findById(authorId)
     
     try {
-        const {communityId} = req.params
+        
         const community = await communityService.updateById(communityId, req.body)
         if(!community){
             return res.status(404).json({

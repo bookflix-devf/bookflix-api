@@ -2,6 +2,6 @@ import { Router } from 'mongoose'
 import communityRouter from './communityRoutes.js'
 const authorRouter = Router()
 
-authorRouter.use('/:authorId/community', communityRouter)
+authorRouter.use('/:authorId/communitys', communityRouter)
 
 export default authorRouter

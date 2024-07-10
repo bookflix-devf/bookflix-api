@@ -16,8 +16,7 @@ api.get('/test', (req, res) => {
 
 api.use('/books', bookRouter);
 api.use('/auth', authRouter);
-api.use('/author', authorRouter)
-api.use('/community', communityRouter)
+api.use('/authors', authorRouter)
 
 api.use((err, req, res, _next) => {
   console.error(err);
