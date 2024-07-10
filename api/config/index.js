@@ -1,3 +1,8 @@
+import dotenv from 'dotenv';
+
+// Cargar las variables de entorno desde .env
+dotenv.config();
+
 const database = {
   host: process.env.DB_HOST,
   username: process.env.DB_USERNAME,
