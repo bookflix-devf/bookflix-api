@@ -26,3 +26,7 @@ const registerUserSchema = joi.object({
 });
 
 export default registerUserSchema;
+
+
+
+//Non sense modification in order to achieve a git comit succesfully
