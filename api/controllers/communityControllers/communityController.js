@@ -1,12 +1,15 @@
 import Community from '../../models/community/Community.js';
 
 //TODO craeteCommunity Alan
-const craeteCommunity = async (req, res) => {
+const createCommunity = async (req, res) => {
     const newCommunity = {
-      community: req.body.community,
-      book: req.params.bookId,
-      user: req.user.id,
-    };
+      textChannels: [],
+      authorId: 1
+    }; 
+    console.log('prueba exitosa');
+    return res.json({
+      msj: 'del return'
+    });
     try {
       const community = await community.create(newCommunity);
       return res.json({
@@ -25,4 +28,4 @@ const craeteCommunity = async (req, res) => {
 //TODO deleteCommunity  Erik
 //TODO getCommunityByID Jesus
 
-export { craeteCommunity };
+export { createCommunity };
