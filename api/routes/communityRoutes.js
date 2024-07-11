@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { deleteCommunityById } from '../controllers/communityControllers/communityController.js';
+import deleteCommunityById from '../controllers/communityControllers/communityController.js'
 import { authUser } from '../middlewares/authValidator.js';
 
 const communityRouter = Router({
