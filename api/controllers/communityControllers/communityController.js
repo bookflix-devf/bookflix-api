@@ -20,13 +20,23 @@ const updateCommunity = async (req, res) => {
       const author = await Author.findById(authorId);
       if (!author) {
         return res.status(404).json({ msg: 'Author not found' });
+  
       }
-      const community = await communityService.updateById(communityId, req.body);
-      if (!community) {
+      const existingCommunity = await Community.findById(communityId);
+      if (!existingCommunity) {
         return res.status(404).json({ msg: 'Community not found' });
       }
+
+      if (existingCommunity.authorId.toString() !== authorId) {
+        return res.status(403).json({ msg: 'You can only modify your own communities' });
+      }
+      const updateCommunity = await communityService.updateById(communityId, req.body);
+      if (!updateCommunity) {
+        return res.status(404).json({ msg: 'Community not found' });
+      }
+      
   
-      res.status(200).json(community);
+      res.status(200).json(updateCommunity);
     } catch (error) {
       console.error('Error updating community:', error);
       res.status(500).json({ msg: 'Internal Server Error', error: error.message });
