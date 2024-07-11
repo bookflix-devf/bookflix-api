@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "touch .env && node --env-file=.env server.js",
     "dev": "nodemon --env-file=.env server.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "author": "bookflix-devf",
   "license": "MIT",

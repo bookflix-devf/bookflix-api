@@ -1,7 +1,12 @@
-import { Router } from 'mongoose'
+import { Router } from 'express'
 import communityRouter from './communityRoutes.js'
-const authorRouter = Router()
+import { getAllAuthors, getAuthorById } from '../controllers/authorControllers/authorController.js';
 
-authorRouter.use('/:authorId/communitys', communityRouter)
+const authorRouter = Router();
 
-export default authorRouter
+authorRouter.get('/', getAllAuthors);
+authorRouter.get('/:authorId', getAuthorById);
+
+authorRouter.use('/:authorId/communities', communityRouter);
+
+export default authorRouter;
