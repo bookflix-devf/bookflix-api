@@ -3,10 +3,13 @@ import bookRouter from './routes/bookRoutes.js';
 import authRouter from './routes/authRoutes.js';
 import authorRouter from './routes/authorRoutes.js';
 import cors from 'cors';
+import morgan from 'morgan';
 
 const api = express();
 
 api.use(cors());
+
+api.use(morgan('dev'));
 
 api.use(express.json());
 
