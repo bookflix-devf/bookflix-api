@@ -2,8 +2,11 @@ import express from 'express';
 import bookRouter from './routes/bookRoutes.js';
 import authRouter from './routes/authRoutes.js';
 import authorRouter from './routes/authorRoutes.js';
+import cors from 'cors';
 
 const api = express();
+
+api.use(cors());
 
 api.use(express.json());
 

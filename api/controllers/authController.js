@@ -1,14 +1,3 @@
-/**
- * body {
- *  role: author | reader
- *  user: {
- *
- *  }
- *
- * }
- *
- *
- */
 import Author from '../models/books/Author.js';
 import Reader from '../models/books/Reader.js';
 import bcrypt from 'bcrypt';
@@ -74,4 +63,10 @@ const login = async (req, res) => {
   }
 };
 
-export { register, login };
+const me = (req, res) => {
+  return res.json({
+    user: req.user,
+  });
+};
+
+export { register, login, me };
