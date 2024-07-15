@@ -2,10 +2,9 @@ import { Schema, model } from "mongoose";
 
 const textChannelSchema = new Schema(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
+    name: {
+      type: String,
       required: true,
-      ref: "User",
     },
   },
   {
