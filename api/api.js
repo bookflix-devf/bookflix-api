@@ -2,6 +2,7 @@ import express from 'express';
 import bookRouter from './routes/bookRoutes.js';
 import authRouter from './routes/authRoutes.js';
 import authorRouter from './routes/authorRoutes.js';
+import testRouter from './routes/testRoutes.js';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -22,6 +23,7 @@ api.get('/test', (req, res) => {
 api.use('/books', bookRouter);
 api.use('/auth', authRouter);
 api.use('/authors', authorRouter);
+api.use('/test', testRouter);
 
 api.use((err, req, res, _next) => {
   console.error(err);
