@@ -6,6 +6,11 @@ const textChannelSchema = new Schema(
       type: String,
       required: true,
     },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,

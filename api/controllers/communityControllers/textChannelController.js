@@ -9,7 +9,15 @@ const textChannelService = new Service(TextChannel);
 
 const createTextChannel = async (req, res) => {
   try {
-    const newTextChannel = await textChannelService.create(req.body);
+    if (!req.user || req.user.role !== "author") {
+      return res.status(403).json({ msg: "No tienes permisos" });
+    }
+
+    const newTextChannelData = {
+      ...req.body,
+      author: req.user._id,
+    };
+    const newTextChannel = await textChannelService.create(newTextChannelData);
     return res.json({ textChannel: newTextChannel });
   } catch (error) {
     console.error(error);
