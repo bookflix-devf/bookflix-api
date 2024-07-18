@@ -13,6 +13,6 @@ authorRouter.get('/', getAllAuthors);
 authorRouter.get('/:authorId', getAuthorById);
 authorRouter.get('/:authorId/books', getBooksByAuthorId);
 
-authorRouter.use('/:authorId/community', communityRouter);
+authorRouter.use('/:authorId/communities', communityRouter);
 
 export default authorRouter;
