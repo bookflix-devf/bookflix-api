@@ -13,7 +13,9 @@ const authUser = (roles) => async (req, res, next) => {
   try {
     const payload = jwt.decode(token, tokenConfig.secret);
 
-    const user = await User.findById(payload.userId);
+    const user = await User.findById(payload.userId).select(
+      '-password -isActive'
+    );
 
     if (!user) {
       return res.status(401).json({
