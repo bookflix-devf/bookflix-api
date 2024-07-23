@@ -1,9 +1,14 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
 const textChannelSchema = new Schema(
   {
     name: {
       type: String,
+      required: true,
+    },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
   },
@@ -12,4 +17,4 @@ const textChannelSchema = new Schema(
   }
 );
 
-export default model('TextChannel', textChannelSchema);
+export default model("TextChannel", textChannelSchema);
