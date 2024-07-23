@@ -15,7 +15,8 @@ api.get('/test', (req, res) => {
 
 api.use('/books', bookRouter);
 api.use('/auth', authRouter);
-api.delete('/communityId', authorRouter);
+api.use('/authors', authorRouter);
+api.use('/communityId', authorRouter);
 
 api.use((err, req, res, _next) => {
   console.error(err);
