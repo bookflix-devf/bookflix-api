@@ -13,6 +13,10 @@ const communitySchema = new Schema(
         ref: 'TextChannel',
       },
     ],
+    name: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

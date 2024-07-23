@@ -26,12 +26,60 @@ const createBook = async (req, res) => {
 };
 
 const searchBooks = async (req, res) => {
-  const { offset = 0, limit = 10 } = req.query;
+  const { offset = 0, limit = 10, searchTerm } = req.query;
 
-  const books = await Book.find().skip(offset).limit(limit);
+  let queryObj = {};
+
+  if (searchTerm) {
+    queryObj = {
+      $or: [
+        {
+          title: {
+            $regex: searchTerm,
+            $options: 'i',
+          },
+          // genre: {
+          //   $regex: searchTerm,
+          //   $options: 'i',
+          // },
+          // 'author.firstName': {
+          //   $regex: '^searchTerm',
+          //   $options: 'i',
+          // },
+          // 'author.lastName': {
+          //   $regex: searchTerm,
+          //   $options: 'i',
+          // },
+        },
+        {
+          genre: {
+            $regex: searchTerm,
+            $options: 'i',
+          },
+        },
+        // {
+        //   'author.lastName': {
+        //     $regex: searchTerm,
+        //     $options: 'i',
+        //   },
+        // },
+      ],
+    };
+  }
+
+  const books = await Book.find(queryObj)
+    .skip(offset)
+    .limit(limit)
+    .populate('author', 'firstName lastName -role');
+
+  const size = await Book.countDocuments();
 
   return res.json({
     books,
+    paginationInfo: {
+      totalPages: Math.ceil(size / limit),
+      currentPage: Math.floor(offset / limit) + 1,
+    },
   });
 };
 

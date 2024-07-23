@@ -6,16 +6,19 @@ const userNotExists = async (email, helpers) => {
     email,
   });
   console.log(user);
-  if (user != null ) {
-    return helpers.error ("user.userAlreadyExists", {v: email});
+  if (user != null) {
+    return helpers.error('user.userAlreadyExists', { v: email });
   }
   return email;
-}
+};
 
 const registerUserSchema = joi.object({
   user: joi.object({
     email: joi.string().email().external(userNotExists).required(),
-    password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{8,16}$')).required(),
+    password: joi
+      .string()
+      .pattern(new RegExp('^[a-zA-Z0-9]{8,16}$'))
+      .required(),
     gender: joi.string().required(),
     nickname: joi.string().required(),
     avatar: joi.string().required(),
@@ -26,7 +29,3 @@ const registerUserSchema = joi.object({
 });
 
 export default registerUserSchema;
-
-
-
-//Non sense modification in order to achieve a git comit succesfully
